@@ -10,7 +10,7 @@ public class ExportResults {
         String description = "<p>" +
                 "<b>Each benchmark test was run once per file. " +
                 "The table below shows the time results from that single run. " +
-                "In earlier tests, the variation between runs was usually no more than 5%, " +
+                "In earlier tests, the variation between runs was usually no more than 5% (+-), " +
                 "so a single run is now considered sufficient for a general comparison.</b>" +
                 "</p><br>\n";
 
