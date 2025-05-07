@@ -4,6 +4,8 @@
 A SAT solver implemented in Java using the DPLL algorithm with some optimizations.
 This project can be run via the CLI and includes a few tests to validate its functionality and correctness.
 
+> **Note:** Around 5,000 benchmark files are bundled with the project. As a result, installation or cloning may take slightly longer than usual.
+
 ## Installation
 
 ### Install Java and Maven (if needed)
