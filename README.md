@@ -66,7 +66,7 @@ The output is structured as follows:
 
 ## Other info
 
-**Project supports the [DIMACS CNF]([https://people.sc.fsu.edu/~jburkardt/data/cnf/cnf.html](https://web.archive.org/web/20190325181937/https://www.satcompetition.org/2009/format-benchmarks2009.html) format only**
+**Project supports the [DIMACS CNF](https://web.archive.org/web/20190325181937/https://www.satcompetition.org/2009/format-benchmarks2009.html) format only**
 
 - The `benchmarks` are located in `src/main/resources/benchmarks`
 - The tests are located in `src/test/java/SimpleSATSolverTest.java`
