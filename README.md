@@ -17,8 +17,6 @@ Make sure Java (16+) and Maven are installed on your system.
 
 ### Navigate to the Directory Containing `pom.xml`
 
-Navigate to the project folder where the `pom.xml` file is located:
-
 ```
 cd SATSolver/
 ```
