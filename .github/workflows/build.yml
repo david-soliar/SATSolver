@@ -2,8 +2,10 @@ name: Build SATSolver
 
 
 on:
-    push:
-    pull_request:
+  push:
+    paths-ignore: ["**.md", "LICENSE"]
+  pull_request:
+    paths-ignore: ["**.md", "LICENSE"]
 
 
 jobs:
