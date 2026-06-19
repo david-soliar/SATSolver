@@ -57,7 +57,7 @@ Output: ~/results.html
 
 ## Output Structure (HTML)
 
-[Example.](/results.html)
+[Example.](/example_results.html)
 
 
 ## Notes
