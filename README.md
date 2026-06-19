@@ -8,11 +8,18 @@ The project supports:
 - HTML export of benchmark results
 
 
+## Download
+
+Prebuilt JAR files are available in GitHub Releases:
+
+[https://github.com/david-soliar/SATSolver/releases](https://github.com/david-soliar/SATSolver/releases/)
+
+
 ## Build
 
 Requirements:
-- Java 21+
-- Maven 3.8+
+- [Java 21+](https://adoptium.net/temurin/releases?version=21)
+- [Maven 3.8+](https://maven.apache.org/download.cgi)
 
 Build project:
 ```
