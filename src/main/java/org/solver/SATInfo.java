@@ -1,5 +1,6 @@
 package org.solver;
 
+
 public class SATInfo {
     public boolean isSat;
     public byte[] assignment;

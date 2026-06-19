@@ -1,6 +1,7 @@
 package org.solver;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.*;
 
 
@@ -10,18 +11,11 @@ public class DimacsParser {
     public int vars;
     public int count;
 
-    public DimacsParser(BufferedReader source) throws SATSolverException {
-        try {
-            parse(source);
-        } catch (Exception e) {
-            throw new SATSolverException("Problem occurred while parsing DIMACS file", e);
-        }
-    }
-
-    private void parse(BufferedReader source) throws Exception {
+    public DimacsParser(BufferedReader source) throws IOException {
         String line;
         int pVars = 0;
         int pClauses = 0;
+        
         while ((line = source.readLine()) != null) {
             line = line.trim();
             if (line.isEmpty() || line.startsWith("c")) continue;
@@ -32,7 +26,7 @@ public class DimacsParser {
                 pVars = Integer.parseInt(parts[2]);
                 pClauses = Integer.parseInt(parts[3]);
                 if (pVars < 1 || pClauses < 1) {
-                    throw new SATSolverException("Invalid 'p cnf' line: " + line);
+                    throw new IllegalArgumentException("Invalid 'p cnf' line: " + line);
                 }
                 continue;
             }

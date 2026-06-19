@@ -2,59 +2,51 @@
 # SATSolver
 
 A SAT solver implemented in Java using the DPLL algorithm with some optimizations.
-This project can be run via the CLI and includes a few tests to validate its functionality and correctness.
 
-> **Note:** Around 5,000 benchmark files are bundled with the project. As a result, installation or cloning may take a few minutes.
+The project supports:
+- solving single CNF files or directories recursively
+- HTML export of benchmark results
 
-## Installation
 
-### Install Java and Maven (if needed)
+## Build
 
-Make sure Java (16+) and Maven are installed on your system.
+Requirements:
+- Java 21+
+- Maven 3.8+
 
-- [Java Download](https://www.oracle.com/java/technologies/downloads)
-- [Maven Download](https://maven.apache.org/download.cgi)
-
-### Navigate to the Directory Containing `pom.xml`
-
+Build project:
 ```
-cd SATSolver/
+mvn clean package
 ```
-
-### Creating and running
-
-To build the project and generate the `.jar` file, use:
-
+This produces:
 ```
-mvn clean
-mvn package
+target/SATSolver-A.B.jar
 ```
 
-Once the `.jar` file is built, you can run the solver with:
 
-```
-java -jar path/to/solver/SATSolver-1.0.jar path/to/input.cnf
-```
+## Run
 
-For example:
-
+### Solve a file
 ```
-java -jar target/SATSolver-1.0.jar benchmarks/20vars/sat/0.cnf
-java -jar target/SATSolver-1.0.jar --export
+java -jar SATSolver-A.B.jar path/to/file.cnf
 ```
 
-### Arguments
+### Solve a folder (recursive)
+```
+java -jar SATSolver-A.B.jar path/to/folder
+```
+Processes all `.cnf` files recursively.
 
-`filepath`, to output results in the command line
+### Export benchmark results
+```
+java -jar SATSolver-A.B.jar <file|folder> --export
+```
+Output: ~/results.html
 
-`--export`, to generate `results.html`, which contains benchmarked results of the solver from the `benchmarks` folder
 
-**Note:** Only one of `filepath` or `--export` can be used at the same time.
+## Output Structure (CLI)
 
-### Output Structure
-
-The output is structured as follows:
-
+0. filename
 1. `SAT` or `UNSAT`
 2. List of true literals, sorted in ascending order by the variable number, or a newline if UNSAT
 3. Time taken to initialize the solver
@@ -62,20 +54,14 @@ The output is structured as follows:
 5. Number of unit propagations that happened during the entire run
 6. Depth of the decision tree (number of decision variables)
 
-## Other info
 
-**Project supports the [DIMACS CNF](https://web.archive.org/web/20190325181937/https://www.satcompetition.org/2009/format-benchmarks2009.html) format only**
+## Output Structure (HTML)
 
-- The `benchmarks` are located in `src/main/resources/benchmarks`
-- The tests are located in `src/test/java/SimpleSATSolverTest.java`
-- In `src/main/java/org/solver`:
-  - `CircularBuffer`, `IntQueue`, and `IntStack` contain data structures for better performance
-  - `DimacsParser` parses `.cnf` files (streams)
-  - `SATInfo` contains information printed after the solver finishes
-  - `SimpleSATSolver` contains the solver logic
-  - `ExportResults` exports benchmarks
+[Example.](/results.html)
 
-## Time Measurement
 
-- Time is measured in nanoseconds, but the output displays the times in milliseconds.
-- If you need the time in nanoseconds, remove the division by `1_000_000` in `SATInfo` to output time in nanoseconds.
+## Notes
+
+- Only [DIMACS CNF](https://web.archive.org/web/20190325181937/https://www.satcompetition.org/2009/format-benchmarks2009.html) format is supported
+- Time is measured in nanoseconds internally and displayed in milliseconds (remove `/ 1_000_000` in `SATInfo` to show nanoseconds)
+- Around 5000 benchmark files are included in `benchmarks.zip`.
